@@ -1,0 +1,10 @@
+Ejemplos de comandos para lanzar los scripts
+
+Todos los índices del primer elastic son copiados al segundo
+sh elasticdump_all_indices.sh http://34.245.220.108:9200 http://localhost:9200
+
+Todos los índices del elastic son guardados en la carpeta que pasamos como segundo parámetro
+sh elasticdump_all_indices_local.sh http://34.245.220.108:9200 backup
+
+Todos los índices de la carpeta que pasamos como primer parámetro son guardados en el elastic
+sh elasticdump_local_all_indices.sh backup http://localhost:9200

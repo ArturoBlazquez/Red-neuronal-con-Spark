@@ -1,0 +1,25 @@
+version: '3'
+
+services:
+  ml-elasticsearch:
+    image: elasticsearch:5.0.0
+    ports:
+      - "9200:9200/tcp"
+      - "9300:9300/tcp"
+    container_name: ml-elasticsearch
+
+  ml-kibana:
+    image: kibana:5.0.0
+    depends_on:
+      - ml-elasticsearch
+    ports:
+      - "5601:5601/tcp"
+    container_name: ml-kibana
+
+  ml-postgres:
+    image: postgres:9.5.10
+    ports:
+      - "5432:5432/tcp"
+    environment:
+      POSTGRES_PASSWORD: example # Use postgres/example user/password credentials
+    container_name: ml-postgres
